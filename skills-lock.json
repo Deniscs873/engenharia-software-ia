@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "windowsfy": {
+      "source": "unipds-engenharia-de-ia-aplicada/engenharia-de-software-com-ia-aplicada",
+      "sourceType": "github",
+      "skillPath": "skills/windowsfy/SKILL.md",
+      "computedHash": "1ae86b9fecc20d6498018ed6cbec91d85d6a6241b02bc96648913d754a0914e9"
+    }
+  }
+}

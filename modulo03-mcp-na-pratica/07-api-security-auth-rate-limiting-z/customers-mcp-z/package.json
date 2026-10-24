@@ -10,16 +10,16 @@
     "src"
   ],
   "scripts": {
-    "build": "chmod 755 src/index.ts",
+    "build": "shx chmod 755 src/index.ts",
     "start": "node src/index.ts",
     "dev": "node --watch --inspect src/index.ts",
-    "test": "node --test tests/**/*.test.ts",
+    "test": "node --test tests/",
     "mcp:inspect": "npx @modelcontextprotocol/inspector node src/index.ts",
-    "test:dev": "node --inspect --test --watch tests/**/*.test.ts",
-    "test:unit:dev": "node --inspect --test --watch tests/**/*unit.test.ts",
-    "test:unit": "node --inspect --test tests/**/*unit.test.ts",
-    "test:e2e:dev": "node --inspect --test --watch tests/**/*e2e.test.ts",
-    "test:e2e": "node --inspect --test tests/**/*e2e.test.ts"
+    "test:dev": "node --inspect --test --watch tests/",
+    "test:unit:dev": "glob -c \"node --inspect --test --watch\" \"tests/**/*unit.test.ts\"",
+    "test:unit": "glob -c \"node --inspect --test\" \"tests/**/*unit.test.ts\"",
+    "test:e2e:dev": "glob -c \"node --inspect --test --watch\" \"tests/**/*e2e.test.ts\"",
+    "test:e2e": "glob -c \"node --inspect --test\" \"tests/**/*e2e.test.ts\""
   },
   "keywords": [],
   "author": "erickwendel",
@@ -32,5 +32,9 @@
     "@modelcontextprotocol/sdk": "^1.27.1",
     "@types/node": "^24.11.0",
     "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "glob": "^13.0.6",
+    "shx": "^0.4.0"
   }
 }

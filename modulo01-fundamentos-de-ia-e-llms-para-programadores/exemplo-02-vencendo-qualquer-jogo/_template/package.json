@@ -4,7 +4,7 @@
   "description": "Duckhunt implemented in JS",
   "scripts": {
     "gulp": "gulp",
-    "lint": "eslint src/**/*.js",
+    "lint": "eslint src/",
     "start": "webpack-dev-server",
     "build": "webpack",
     "audio": "gulp audio",

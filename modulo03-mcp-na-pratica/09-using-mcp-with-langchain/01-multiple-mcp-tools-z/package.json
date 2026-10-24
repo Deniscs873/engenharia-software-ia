@@ -10,7 +10,7 @@
     "langgraph:serve": "npx @langchain/langgraph-cli dev",
     "docker:infra:up": "docker compose up -d --wait",
     "docker:infra:down": "docker compose down",
-    "docker:infra:cleanup": "docker compose down --volumes --remove-orphans && rm -rf storage",
+    "docker:infra:cleanup": "docker compose down --volumes --remove-orphans && shx rm -rf storage",
     "docker:infra:logs": "docker compose logs -f"
   },
   "keywords": [
@@ -30,7 +30,8 @@
     "langchain": "^1.2.17"
   },
   "devDependencies": {
-    "@types/node": "^24.10.12"
+    "@types/node": "^24.10.12",
+    "shx": "^0.4.0"
   },
   "engines": {
     "node": ">=24.10.0"
