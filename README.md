@@ -1,96 +1,73 @@
-# Engenharia de Software com Inteligência Artificial
+# Engenharia de Software com IA — Estudos, Laboratórios e Experimentos
 
-Repositório técnico voltado ao desenvolvimento, arquitetura e implementação de pipelines práticos de IA. Reúne projetos autorais, estudos de caso e desafios de engenharia construídos ao longo da minha especialização em IA Aplicada, demonstrando evolução contínua em arquitetura de software, orquestração de LLMs e automação inteligente.
+**Learning repository · AI engineering · LLMs · RAG · MCP · Agents**
 
----
+Este repositório organiza materiais e exercícios relacionados à formação em Engenharia de Software com IA. Contém **exemplos didáticos, templates, snapshots de curso e algumas adaptações/experimentos pessoais**. A presença de um módulo aqui **não significa que todo o código foi escrito por mim ou que todos os projetos foram validados em produção**.
 
-## 🎯 Proposta & Foco Técnico
+[Meu perfil](https://github.com/Deniscs873) · [LinkedIn](https://www.linkedin.com/in/denis-correia/)
 
-Diferente de um repositório convencional de exercícios acadêmicos, este espaço documenta a **minha curva de evolução técnica** e a transição entre consumir APIs simples de linguagem e desenhar sistemas autônomos, resilientes e orientados a grafos.
+## Organização
 
-* **Foco em Boas Práticas:** Separação estrita de responsabilidades, tipagem estática com Pydantic, controle determinístico de respostas e tratamento de falhas em chamadas a modelos probabilísticos.
-* **Execução Híbrida:** Implementações divididas entre modelos de fronteira em nuvem e inferência local (*on-premise / edge*) para privacidade e contenção de custos.
-* **Engenharia de Recuperação (RAG):** Evolução de RAG puramente vetorial para Graph RAG via Neo4j, reduzindo alucinações em dados estruturados complexos.
+| Módulo | Conteúdo encontrado no repositório |
+| --- | --- |
+| [01 — Fundamentos de IA e LLMs](modulo01-fundamentos-de-ia-e-llms-para-programadores/) | TensorFlow.js, modelos locais, parâmetros de inferência, embeddings e Neo4j/RAG |
+| [02 — Integração de APIs e LLMs](modulo02-integracao-apis-llms/) | Integração de modelos, LangChain e laboratórios RAG |
+| [03 — MCP](modulo03-mcp-na-pratica/) | Ferramentas MCP, clientes, servidores e exemplos de integração |
+| [04 — Agentes autônomos](modulo04-criacao-de-agentes-autonomos-novo/) | Exercícios e snapshots de um copiloto de incidentes com LangGraph |
+| [05–10](modulo05-ferramentas-de-IA-para-UI-UX/) | Outros materiais e experimentos de UI, AIOps, arquitetura e governança |
 
----
+Os diretórios individuais têm pré-requisitos, scripts e graus diferentes de conclusão; **não existe um comando único na raiz para executar todo o repositório**.
 
-## 📈 Trilha de Evolução & Roadmap Prático
+## Exemplos para explorar
 
-| Fase / Módulo | Domínio Principal | Tecnologias Chave | Status |
-| :--- | :--- | :--- | :--- |
-| **01. Fundamentos & Core LLMs** | Parâmetros de inferência, Multimodalidade e Graph RAG | Python, Ollama, Neo4j, Playwright | Concluído |
-| **02. Integração de APIs** | Padrões de consumo resiliente, Schema Enforcement | OpenRouter, Pydantic, REST | Concluído |
-| **03. MCP na Prática** | Model Context Protocol, integração de ferramentas e dados | MCP SDK, Grafana, Stdio/SSE | Em andamento |
-| **04. Agentes Autônomos** | Loops ReAct, planejamento de tarefas e memória de contexto | LangGraph / CrewAI, Memória Persistente | Em andamento |
-| **05 a 07. Interface & Gestão** | Design de interfaces orientadas a IA e fluxos AIOps | Streamlit, UI/UX com IA, Métricas | Planejado |
-| **08 a 10. Arquitetura & Governança** | Fine-tuning, Observabilidade, Segurança e Conformidade | LoRA/QLoRA, Grafana, Guardrails | Planejado |
+### Experimentos pessoais identificados por nome
 
----
+- [Classificação introdutória — exemplo 00 Denis](modulo01-fundamentos-de-ia-e-llms-para-programadores/exemplo-00-Denis/)
+- [Protótipo de e-commerce — exemplo 01 Denis](modulo01-fundamentos-de-ia-e-llms-para-programadores/exemplo-01-ecommerce-recomendations-denis/)
 
-## 💡 Destaques de Engenharia (Case Studies)
+Os exemplos usam dados educacionais; o protótipo de e-commerce **ainda não oferece um mecanismo de recomendação de ML avaliado**.
 
-Abaixo estão alguns dos desafios reais implementados no repositório:
+### Exemplos de referência e material de curso
 
-### 1. Graph RAG com Neo4j & Embeddings (`modulo01`)
-* **Problema:** Sistemas tradicionais de RAG vetorial perdem conexões semânticas relacionais em conjuntos de dados densos.
-* **Solução:** Implementação de pipeline combinando busca por similaridade vetorial com navegação em grafos relacionais no Neo4j, garantindo recuperação de contexto hierárquico e redução de alucinações.
-* **Stack:** Neo4j, Cypher, Embeddings semânticos, Python.
+- [Exemplo de Graph RAG com Neo4j](modulo01-fundamentos-de-ia-e-llms-para-programadores/exemplo-13-embeddings-neo4j-rag/)
+- [Exercícios de MCP](modulo03-mcp-na-pratica/)
+- [OpsPilot — snapshot de laboratório](modulo04-criacao-de-agentes-autonomos-novo/08-projeto-pratico-opspilot-publicado/)
 
-### 2. Padronização de Ferramentas com MCP (`modulo03`)
-* **Problema:** Conexão direta e desordenada entre agentes e fontes de dados legadas.
-* **Solução:** Adoção do *Model Context Protocol* (MCP) para padronizar a exposição de métricas do Grafana e contexto local de arquivos para os modelos de linguagem, criando uma camada de desacoplamento.
-* **Stack:** Protocolo MCP, Grafana, JSON-RPC.
+Estes links indicam materiais que estão presentes para estudo, **não reivindicam autoria original nem implantação própria**. Os textos de alguns exemplos fazem referência a outros autores e seus repositórios originais.
 
----
+## Como executar
 
-## 🛠️ Stack Tecnológica Consolidada
+1. Escolha a pasta do exemplo desejado.
+2. Leia o README e o manifesto de dependências daquela pasta.
+3. Copie `.env.example` para `.env` quando necessário; **nunca envie tokens ou chaves reais ao Git**.
+4. Instale as dependências localmente e execute os scripts indicados na pasta.
+5. Avalie resultados e limitações antes de utilizar qualquer código em outros contextos.
 
-* **Linguagens & Ambientes:** Python 3.11+, Node.js, Ambientes Virtuais (.venv isolados).
-* **LLMs & Inferência:** Ollama (execução local / zero-cost inference), OpenRouter, Claude, GPT.
-* **Bancos de Dados & Grafos:** Neo4j (Cypher), Armazenamento de Vetores.
-* **Observabilidade & Validação:** Grafana, Pydantic, Playwright (testes e raspagem orientada a agentes).
+Não utilize `pip install -r requirements.txt` na raiz: atualmente esse arquivo não existe nela.
 
----
+## Autoria, atribuição e licença
 
-## 📓 Diário de Bordo (DevLog & Decisões de Arquitetura)
+O repositório contém material educacional de terceiros. O arquivo [LICENSE.md](LICENSE.md) identifica a **Unipds Educação** como detentora dos direitos sobre os materiais sob **CC BY-NC-ND 4.0**, inclusive com restrições à redistribuição de obras derivadas.
 
-Registro conciso das decisões e aprendizados práticos adquiridos durante as implementações:
+- Consulte os autores, avisos e licenças de **cada exemplo** antes de modificar, publicar novamente ou redistribuir.
+- A inclusão de um arquivo aqui **não concede direitos adicionais** nem substitui a licença de origem.
+- Exemplos nomeados, modificações pessoais e trabalhos próprios precisam ter autoria e proveniência identificadas individualmente.
+- Quando houver dúvida sobre autorização para publicação, a abordagem adequada é **obter permissão ou retirar o material afetado**, sem assumir licenciamento permissivo.
 
-* **Controle de Variabilidade em Inferência:** Nos primeiros testes, o uso de `temperature` padrão gerava variabilidade excessiva em extrações de dados. A padronização com amostragem baixa ($temperature \le 0.2$) combinada com schemas estritos garantiu deterministicidade necessária para integração com APIs.
-* **Eficiência com Modelos Locais:** A integração do Ollama permitiu construir baterias de testes automatizados sem custo de tokens de APIs comerciais, reservando modelos de fronteira apenas para tarefas que exigem alto poder de raciocínio.
-* **Protocolo MCP vs. Chamadas de Função Tradicionais:** A transição para MCP permitiu que ferramentas de contexto (como métricas e logs) pudessem ser reaproveitadas por múltiplos agentes sem a necessidade de reescrever wrappers de chamadas proprietárias.
+## Padrão para novos projetos autorais
 
----
+Para portfólio profissional, novos projetos independentes devem conter: escopo e problema, arquitetura, configuração reproduzível, testes, métricas, limitações, origem de dados e licença apropriada.
 
-## 🚀 Como Explorar e Executar
+### Roadmap pessoal (não implementações concluídas)
 
-### 1. Clonar o repositório
-```bash
-git clone https://github.com/Deniscs873/engenharia-software-ia.git
-cd engenharia-software-ia
-```
-
-### 2. Ativar o ambiente virtual
-```bash
-# Windows
-python -m venv .venv
-.venv\Scripts\activate
-
-# Linux / macOS
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-### 3. Instalar dependências
-```bash
-pip install -r requirements.txt
-```
+- [ ] Assistente RAG autoral com citações e conjunto de avaliação
+- [ ] Detecção de anomalias em dados industriais com métricas
+- [ ] Pipeline de MLOps com CI/CD e monitoramento
 
 ---
 
-## 👨‍💻 Autor
+## English summary
 
-**Denis Correia**  
-Engenheiro & Desenvolvedor de Software  
-* Perfil GitHub: [@Deniscs873](https://github.com/Deniscs873)  
-* Foco: Arquitetura de Sistemas com IA, Sistemas Embarcados/IoT e Engenharia de Software.
+AI software engineering learning repository with course references, labs, and personal exercises. **Do not assume that every example is original work by this account's owner.** Course licensing and per-project provenance apply. The roadmap describes proposed original projects, not completed production deployments.
+
+**Maintainer:** [Denis Correia](https://github.com/Deniscs873)
